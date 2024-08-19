@@ -1,4 +1,5 @@
 ﻿using Clean_arch.Application.Orders.DTOs;
+using Clean_arch.Contracts;
 using Clean_arch.Domain.Orders;
 using Clean_arch.Domain.Orders.Repository;
 using System;
@@ -12,11 +13,13 @@ namespace Clean_arch.Application.Orders
     // Apllicatioan Layer UseCase
     public class OrderService : IOrderService
     {
-        private IOrderRepository _repository;
+        private readonly IOrderRepository _repository;
+        private readonly ISmsServiecs _smsService;
 
-        public OrderService(IOrderRepository repository)
+        public OrderService(IOrderRepository repository, ISmsServiecs smsServiecs)
         {
             _repository = repository;
+            _smsService = smsServiecs;
         }
 
         public void AddOrder(AddOrderDto command)
@@ -32,6 +35,12 @@ namespace Clean_arch.Application.Orders
             order.Finally();
             _repository.Update(order);
             _repository.SaveChange();
+
+            _smsService.SendSms(new SmsBody()
+            {
+                PhoneNumber="0920142546",
+                Message="Test Sms"
+            });
         }
 
         public OrderDto GetById(long id)

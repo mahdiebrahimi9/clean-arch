@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Clean_arch.Application</RootNamespace>
+    <RootNamespace>Clean_arch.Contracts</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Clean-arch.Contracts\Clean-arch.Contracts.csproj" />
+    <ProjectReference Include="..\Clean-arch.Domain\Clean-arch.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ namespace Clean_arch.Application.Products
 {
     public class ProductService : IProductService
     {
-        private IProductRepository _repository;
+        private readonly IProductRepository _repository;
 
         public ProductService(IProductRepository repository)
         {
