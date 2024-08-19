@@ -26,24 +26,24 @@ namespace Clean_arch.Application.Orders
         {
             // DTO Order Data Added To Base Domain Order Entites
             var order = new Order(command.ProductId, command.Count, command.Price);
-            _repository.Add(order);
+            _repository.SaveChange();
         }
 
-        public void FinalliOrderDto(FinallyOrderDto command)
+        public void Finallyorder(FinallyOrderDto command)
         {
             var order = _repository.GetById(command.OrderId);
             order.Finally();
             _repository.Update(order);
             _repository.SaveChange();
 
-            _smsService.SendSms(new SmsBody()
+            _smsService.SendSms(new SmsBody
             {
                 PhoneNumber="0920142546",
                 Message="Test Sms"
             });
         }
 
-        public OrderDto GetById(long id)
+        public OrderDto GetOrderById(long id)
         {
             var order = _repository.GetById(id);
             return new OrderDto()
@@ -66,7 +66,7 @@ namespace Clean_arch.Application.Orders
                 Id = order.Id
 
             }).ToList();
-
         }
+
     }
 }

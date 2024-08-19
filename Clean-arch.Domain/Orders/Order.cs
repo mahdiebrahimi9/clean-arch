@@ -18,7 +18,7 @@ namespace Clean_arch.Domain.Orders
         public int Price { get; private set; }
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
-        public int TotalPrice { get; private set; }
+        public int TotalPrice => Count * Price;
 
 
         public Order(Guid productId, int count, int price)

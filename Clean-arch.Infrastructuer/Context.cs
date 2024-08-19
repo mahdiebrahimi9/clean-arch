@@ -5,7 +5,7 @@ namespace Clean_arch.Infrastructuer
 {
     public class Context
     {
-        public List<Product> Products { get; set; }
-        public List<Order> Orders { get; set; }
+        public List<Product> products { get; set; }
+        public List<Order> orders { get; set; } = new List<Order>() { new Order(Guid.NewGuid(), 25, 60) };
     }
 }

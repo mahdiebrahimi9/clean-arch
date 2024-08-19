@@ -17,22 +17,22 @@ namespace Clean_arch.Infrastructuer.Presistent.Memory.Products
         }
         public void Add(Product product)
         {
-            _context.Products.Add(product);
+            _context.products.Add(product);
         }
 
         public Product GetById(Guid id)
         {
-            return _context.Products.FirstOrDefault(f => f.Id == id);
+            return _context.products.FirstOrDefault(f => f.Id == id);
         }
 
         public List<Product> GetList()
         {
-            return _context.Products;
+            return _context.products;
         }
 
         public void Remove(Product product)
         {
-            _context.Products.Remove(product);
+            _context.products.Remove(product);
         }
 
         public void Save()
@@ -43,7 +43,7 @@ namespace Clean_arch.Infrastructuer.Presistent.Memory.Products
         public void Update(Product product)
         {
             var oldProduct = GetById(product.Id);
-            _context.Products.Remove(oldProduct);
+            _context.products.Remove(oldProduct);
             Add(product);
         }
     }

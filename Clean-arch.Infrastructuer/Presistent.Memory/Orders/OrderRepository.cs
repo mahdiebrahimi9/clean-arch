@@ -13,17 +13,17 @@ namespace Clean_arch.Infrastructuer.Presistent.Memory.Orders
         private Context _context;
         public void Add(Order order)
         {
-            _context.Orders.Add(order);
+            _context.orders.Add(order);
         }
 
         public Order GetById(long id)
         {
-            return _context.Orders.FirstOrDefault(order => order.Id == id);
+            return _context.orders.FirstOrDefault(order => order.Id == id);
         }
 
         public List<Order> GetList()
         {
-            return _context.Orders;
+            return _context.orders;
         }
 
         public void SaveChange()
@@ -33,8 +33,8 @@ namespace Clean_arch.Infrastructuer.Presistent.Memory.Orders
 
         public void Update(Order order)
         {
-            var oldOlrder = GetById(order.Id);
-            _context.Orders.Remove(oldOlrder);
+            var oldOrder = GetById(order.Id);
+            _context.orders.Remove(oldOrder);
             Add(order);
         }
     }

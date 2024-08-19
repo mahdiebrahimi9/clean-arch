@@ -1,0 +1,6 @@
+@Web_Presentation.Layer_HostAddress = http://localhost:5231
+
+GET {{Web_Presentation.Layer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -12,7 +12,7 @@ namespace Clean_arch.Application.Orders
         // Dto Sets Service
         List<OrderDto> GetOrders();
         void AddOrder(AddOrderDto command);
-        void FinalliOrderDto(FinallyOrderDto command);
-        OrderDto GetById(long id);
+        void Finallyorder(FinallyOrderDto command);
+        OrderDto GetOrderById(long id);
     }
 }
